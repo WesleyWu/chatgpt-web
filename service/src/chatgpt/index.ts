@@ -54,6 +54,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
   else {
     const options: ChatGPTUnofficialProxyAPIOptions = {
       accessToken: process.env.OPENAI_ACCESS_TOKEN,
+      model: 'gpt-4',
       debug: true,
     }
 
@@ -63,6 +64,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
     setupProxy(options)
 
     api = new ChatGPTUnofficialProxyAPI({ ...options })
+    global.console.log(options)
     apiModel = 'ChatGPTUnofficialProxyAPI'
   }
 })()
